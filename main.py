@@ -14,9 +14,6 @@ from src.features.scoring import rolling_consistency
 from src.utils.har_loader import load_har_dataset
 from src.utils.har_attack import inject_adversarial_noise
 
-# ----------------------------
-# Config
-# ----------------------------
 SEED = 42
 W = 64
 STEP = 16
