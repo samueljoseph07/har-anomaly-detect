@@ -44,7 +44,7 @@ def main():
 
     # 1) Load dataset
     stream_clean = load_har_dataset("data/HAR")
-    stream_clean = stream_clean[:5000]  # trim for speed in demo
+    stream_clean = stream_clean[:5000]  
     T = len(stream_clean)
     start = int(T * ADV_RANGE[0])
     end   = int(T * ADV_RANGE[1])
@@ -88,12 +88,6 @@ def main():
     clf = LogisticRegression(class_weight="balanced", random_state=SEED, max_iter=1000)
     clf.fit(X_train, y_train)
     y_pred = clf.predict(X_test)
-
-    # 9) Evaluation
-    # print("\nConfusion Matrix:")
-    # print(confusion_matrix(y_test, y_pred))
-    # print("\nClassification Report:")
-    # print(classification_report(y_test, y_pred, digits=3))
 
     # 10) Threshold baseline
     thr = cons_clean.mean().item() - 0.1
